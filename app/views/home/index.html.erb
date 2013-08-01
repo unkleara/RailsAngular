@@ -1,0 +1,39 @@
+<nav class="top-bar" class="contain-to-grid sticky">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="/">RailsAngular</a></h1>
+        </li>
+    </ul>
+</nav>
+<div ng-controller="MainCtrl">
+	<div data-magellan-expedition="fixed" class="contain-to-grid sticky">
+  <ul class="sub-nav">
+  	<div class="right">{{status}}</div>
+    	<div class="small-6 large-centered columns">
+				<div class="row">
+					<div class="large-12 columns">
+						<button class="large button expand" ng-model="max" ng-click="displayMore(max)">
+						Show {{max}} More Videos
+						</button>
+					</div>
+				</div>
+			</div>
+  </ul>
+</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="row">
+				<div class="medium-2 large-3 columns videobox left" ng-repeat="video in videos">
+					<img ng-src="{{video.image_url}}" alt="{{video.title}}">
+					<div class="panel">
+						<h4 ng-repeat="artist in video.artists_main"><small>{{artist.name}}</small></h4>
+						<h6 class="subheader"><small>{{video.title}}</small></h6>
+						<span class="radius"><em>Views: {{video.viewcount}}</em></span>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
